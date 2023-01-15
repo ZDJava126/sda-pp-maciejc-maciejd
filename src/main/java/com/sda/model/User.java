@@ -3,82 +3,51 @@ package com.sda.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @NoArgsConstructor
 @Entity
+@AllArgsConstructor
+@Builder
+@Getter
+@Setter
+@ToString
+
 
 public class User {
     @Id
-    @Column(name = "USERNAME")
+    @Column(name = "username")
     private  String username;
-    @Column(name = "PASSWORD")
+
+    @Column(name = "password")
     private String password;
-    @Column(name = "NAME")
+
+    @Column(name = "name")
     private String name;
-    @Column(name = "SURNAME")
+
+    @Column(name = "suername")
     private String surname;
-    @Column(name = "AGE")
+
+    @Column(name = "age")
     private int age;
-    @Column(name = "E-MAIL")
+
+    @Column(name = "e-mail")
     private String email;
 
-    public User(String username, String password, String name, String surname, int age, String email) {
-        this.username = username;
-        this.password = password;
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.email = email;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+
+        User user = (User) o;
+        return username != null && Objects.equals(username, user.username);
     }
 
-    public String getUsername() {
-        return username;
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     @Override
     public String toString() {
