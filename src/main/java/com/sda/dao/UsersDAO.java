@@ -8,11 +8,12 @@ import org.hibernate.Transaction;
 public class UsersDAO {
 
 
-  public void create (User user) {
-      try (Session session = HibernateUtils.getSessionFactory().openSession()) {
-          Transaction transaction = session.beginTransaction();
-          session.persist(user);
-          transaction.commit();
-      }
-  }
+    public void create (User user) {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.persist(user);
+            transaction.commit();
+        }
+    }
+
 }
