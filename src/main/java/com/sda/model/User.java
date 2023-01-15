@@ -4,6 +4,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
+import org.hibernate.Hibernate;
+
+import java.util.Objects;
 
 @NoArgsConstructor
 @Entity
@@ -40,7 +43,7 @@ public class User {
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
 
         User user = (User) o;
-        return username != null && Objects.equals(username, user.username);
+        return username != null &&Objects.equals(username, user.username);
     }
 
     @Override
