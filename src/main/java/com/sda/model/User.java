@@ -11,21 +11,27 @@ import lombok.*;
 @Builder
 @Getter
 @Setter
+@ToString
 
 
 public class User {
     @Id
-    @Column(name = "USERNAME")
+    @Column(name = "username")
     private  String username;
-    @Column(name = "PASSWORD")
+
+    @Column(name = "password")
     private String password;
-    @Column(name = "NAME")
+
+    @Column(name = "name")
     private String name;
-    @Column(name = "SURNAME")
+
+    @Column(name = "suername")
     private String surname;
-    @Column(name = "AGE")
+
+    @Column(name = "age")
     private int age;
-    @Column(name = "E-MAIL")
+
+    @Column(name = "e-mail")
     private String email;
 
     @Override
