@@ -28,6 +28,20 @@ public class User {
     @Column(name = "E-MAIL")
     private String email;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+
+        User user = (User) o;
+        return username != null && Objects.equals(username, user.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
 
     @Override
     public String toString() {
