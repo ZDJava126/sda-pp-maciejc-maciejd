@@ -4,6 +4,10 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
+import org.hibernate.Hibernate;
+
+import java.util.Objects;
+
 
 @NoArgsConstructor
 @Entity
